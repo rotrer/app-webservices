@@ -21,6 +21,16 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+ 	Router::parseExtensions('json', 'xml');
+ 	
+ 	Router::resourceMap(array(
+	    array('action' => 'index', 'method' => 'GET', 'id' => false),
+	    array('action' => 'view', 'method' => 'GET', 'id' => true),
+	    array('action' => 'add', 'method' => 'POST', 'id' => false),
+	    array('action' => 'edit', 'method' => 'PUT', 'id' => true),
+	    array('action' => 'delete', 'method' => 'DELETE', 'id' => true),
+	    array('action' => 'update', 'method' => 'POST', 'id' => true)
+	));
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',
  * its action called 'display', and we pass a param to select the view file
@@ -31,6 +41,10 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	
+	Router::connect('/jsRegionesChile.js', array('controller' => 'pages', 'action' => 'jsRegionesChile'));
+	Router::connect('/jsChile.js', array('controller' => 'pages', 'action' => 'jsChile'));
+	Router::connect('/json2.js', array('controller' => 'pages', 'action' => 'json2'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

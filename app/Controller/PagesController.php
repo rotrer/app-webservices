@@ -43,7 +43,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Comuna', 'Regione');
 
 /**
  * Displays a view
@@ -71,5 +71,40 @@ class PagesController extends AppController {
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));
+	}
+	
+	public function jsRegionesChile(){
+		$this->layout = 'ajax';
+		
+		$regione = $this->Regione->find('all');
+		if($regione) foreach($regione as $region){
+			$arrDataR[] = array(
+				"id" => $region["Regione"]["id"],
+				"name" => utf8_encode($region["Regione"]["name"])
+			);
+		}
+		
+		$comuna = $this->Comuna->find('all');
+		if($comuna) foreach($comuna as $comun){
+			$arrDataC[] = array(
+				"id" => $comun["Comuna"]["id"],
+				"name" => utf8_encode($comun["Comuna"]["name"]),
+				"region_id" => $comun["Comuna"]["region_id"]
+			);
+		}
+		
+		$this->set('regiones', $arrDataR);
+		$this->set('comunas', $arrDataC);
+		header("Content-type: application/x-javascript");
+	}
+	
+	public function json2(){
+		$this->layout = 'ajax';
+		header("Content-type: application/x-javascript");
+	}
+	
+	public function jsChile(){
+		$this->layout = 'ajax';
+		header("Content-type: application/x-javascript");
 	}
 }
