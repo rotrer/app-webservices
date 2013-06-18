@@ -24,12 +24,12 @@ WebServices Regiones
 
 1. Todas las ocupaciones: `[**TU_DOMINIO**]/occupations.json`
 
-### Para traer todas las regiones y comunas en un formato JSON
+Para traer todas las regiones y comunas en un formato JSON
 
 1. Aplicar: `[**TU_DOMINIO**]/jsRegionesComunas.js`
 
 
-# Como utilizar este WS
+## Como utilizar este WS
 
 ###### Muy simple, en tu archivo JS o donde necesites llamar los servicios, aplica lo siguiente:
 ```
@@ -50,4 +50,4 @@ WebServices Regiones
 
 ### Acá puedes ver un ejemplo
 
-###### En la vista `test.ctp` del controller `pages` y la url a ejecutar debería ser `[**TU_DOMINIO**]/pages/test`
+En la vista `test.ctp` del controller `pages` y la url a ejecutar debería ser `[**TU_DOMINIO**]/pages/test`
