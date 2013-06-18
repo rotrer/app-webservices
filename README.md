@@ -24,14 +24,14 @@ WebServices Regiones
 
 1. Todas las ocupaciones: `[**TU_DOMINIO**]/occupations.json`
 
-Para traer todas las regiones y comunas en un formato JSON
+### Para traer todas las regiones y comunas en un formato JSON
 
 1. Aplicar: `[**TU_DOMINIO**]/jsRegionesComunas.js`
 
 
 ## Como utilizar este WS
 
-###### Muy simple, en tu archivo JS o donde necesites llamar los servicios, aplica lo siguiente:
+Muy simple, en tu archivo JS o donde necesites llamar los servicios, aplica lo siguiente:
 ```
 	$.load(
 		"jsRegionesComunas.js", // Esto queda como parametro, lo puedes modificar si cambias algun **action**
@@ -46,7 +46,7 @@ Para traer todas las regiones y comunas en un formato JSON
 	);
 ```
 
-###### O bien, puedes crear tus propias llamadas con los recursos dispoibles mencionados anteriormente.
+O bien, puedes crear tus propias llamadas con los recursos dispoibles mencionados anteriormente.
 
 ### Acá puedes ver un ejemplo
 
