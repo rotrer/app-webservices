@@ -51,3 +51,7 @@ O bien, puedes crear tus propias llamadas con los recursos dispoibles mencionado
 ### Acá puedes ver un ejemplo
 
 En la vista `test.ctp` del controller `pages` y la url a ejecutar debería ser `[**TU_DOMINIO**]/pages/test`
+
+#### También está disponible el script Json2 para compatibilidad IE
+
+Cargalo de la sigueinte forma: `[**TU_DOMINIO**]/json2.js`

@@ -5,7 +5,7 @@ $(document).ready(function() {
 		{
 	        source_element: '#UserRegion',
 	        target_element: '#UserComuna',
-	        url_ws : location.protocol+'//umdapps.com/labs/ws/'
+	        url_ws : location.protocol+'//domain.com/labs/ws/'
 	    },
 	    function() {
 	    	$.chileRegiones();
