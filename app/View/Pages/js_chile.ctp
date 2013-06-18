@@ -1,29 +1,45 @@
-(function(jQuery) {
-	
-    /**
-    * jQuery('#region').chileRegiones('#comuna');
-    */
-    jQuery.getJSON(location.protocol+'//umdapps.com/labs/ws/regiones.json',function(regiones){
-            jQuery.getJSON(location.protocol+'//umdapps.com/labs/ws/comunas.json',function(comunas){
-            jQuery.fn.chileRegiones = function(element_id_class) {
-                element = jQuery(this);
-                element.html('<option value=""></option>');
-                jQuery.each(regiones.data,function(x,item){
-                    element.append('<option value="'+item.id+'">'+item.name+'</option>');
-                });
-                jQuery(this).change(function(){
-                    jQuery(element_id_class).html('<option value=""></option>');
-                    value = jQuery(this).val();
-                    if(value != ''){
-                        jQuery.each(comunas.data,function(x,item){
-                            if(value == item.region_id){
-                                jQuery(element_id_class).append('<option value="'+item.id+'">'+item.name+'</option>');
-                            }
-                        });
-                    }
-                });        
-            }    
-        });
-    });
+(function($) {
+	var defaults = {
+	    source_element : '#region',
+	    target_element : '#comuna',
+	    url_ws : '',
+	};
+	var options = {};
+	$.extend({
+		load: function(src, args, callback) {
+			options = $.extend(defaults, args);
+		    var script = document.createElement('script'),
+		        loaded;
+		    script.setAttribute('src', options.url_ws+src);
+		    if (callback) {
+		      script.onreadystatechange = script.onload = function() {
+		        if (!loaded) {
+		          callback();
+		        }
+		        loaded = true;
+		      };
+		    }
+		    document.getElementsByTagName('head')[0].appendChild(script);
+		},
+	    chileRegiones: function(){
+	        element = options.source_element;
+			element_id_class = options.target_element;
 
+			$(element).empty().append('<option value="">Selecciona</option>');
+			$.each(regiones,function(x,item){
+				$(element).append('<option value="'+item.id+'">'+item.name+'</option>');
+			});
+			$(element).change(function(){
+				$(element_id_class).html('<option value="">Selecciona</option>');
+				value = $(this).val();
+				if(value != ''){
+					$.each(comunas,function(x,item){
+						if(value == item.region_id){
+							$(element_id_class).append('<option value="'+item.id+'">'+item.name+'</option>');
+						}
+					});
+				}
+			});
+	    }
+	});
 }(jQuery));

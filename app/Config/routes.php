@@ -45,6 +45,7 @@
 	Router::connect('/jsRegionesChile.js', array('controller' => 'pages', 'action' => 'jsRegionesChile'));
 	Router::connect('/jsChile.js', array('controller' => 'pages', 'action' => 'jsChile'));
 	Router::connect('/json2.js', array('controller' => 'pages', 'action' => 'json2'));
+	Router::connect('/jsRegionesComunas.js', array('controller' => 'pages', 'action' => 'jsRegionesComunas'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
