@@ -37,7 +37,9 @@ Muy simple, en tu archivo JS o donde necesites llamar los servicios, aplica lo s
 		"jsRegionesComunas.js", // Esto queda como parametro, lo puedes modificar si cambias algun **action**
 		{
 	        source_element: '#UserRegion', //Id o class de la región
+	        source_empty  : 'Seleccione Región', //Option con valor vacío
 	        target_element: '#UserComuna', //Id o class de la comuna
+	        target_empty   : 'Seleccione Comuna', //Option con valor vacío
 	        url_ws : location.protocol+'//domain.com/labs/ws/' //Url donde apuntara tu WS, en este caso obtiene el protocol (http o https) de acuerdo al entorno
 	    },
 	    function() {
